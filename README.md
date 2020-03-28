@@ -1,2 +1,2 @@
 # Algorithm
-Welcome ^ㅅ^
+Welcome~🎨
