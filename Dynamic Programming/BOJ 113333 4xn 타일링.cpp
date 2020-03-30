@@ -4,8 +4,8 @@ long long d[10001];
 long long tilingFourByN(int n)
 {
 	if (n<0) return 0;
-	if (n==1) return 2;
-	if (n==3) return d[n]=3;
+	if (n == 1) return 2;
+	if (n == 3) return d[n] = 3;
 	if (d[n]) return d[n];
 
 	for (int i=2; i<=n; i++)
@@ -15,7 +15,6 @@ long long tilingFourByN(int n)
 		else
 			d[i] = (tilingFourByN(i - 1) + tilingFourByN(i - 3)) % 1000000007;
 	}
-  
 	return d[n];
 }
 
@@ -27,6 +26,6 @@ int main()
 	{
 		scanf("%d", &n);
 		tilingFourByN(n);
-    n % 3 ? puts("0") : printf("%lld\n", d[n]);
+		n % 3 ? puts("0") : printf("%lld\n", d[n]);
 	}
 }
