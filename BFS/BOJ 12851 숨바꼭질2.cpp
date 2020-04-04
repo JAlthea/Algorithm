@@ -29,5 +29,6 @@ int main()
 			if (nx[i] >= 0 && nx[i] <= 100000 && check[nx[i]] == 0)
 				q.push({ p.first + 1, nx[i] });
 	}
+	
 	cout << fastestTime << '\n' << count;
 }
