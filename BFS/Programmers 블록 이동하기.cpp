@@ -1,15 +1,28 @@
 #include <vector>
 #include <queue>
-#include <set>
+#include <unordered_set>
 #include <algorithm>
 using namespace std;
+
+struct hashFuction {
+    size_t operator()(const vector<int> &a) const {
+        int resultA = 0;
+        int digit = 1;
+        for (int i=0; i<4; i++)
+        {
+            resultA += a[i] * digit;
+            digit *= 10;
+        }
+        return resultA;
+    }
+};
 
 int solution(vector<vector<int>> board) {
     const int N = board.size() - 1;
     const int dy[] = { 0, 1, -1, 0 };
     const int dx[] = { 1, 0, 0, -1 };
     int answer = 0;
-    set<vector<int>> checkBoard;    //좌표 중복체크를 위함
+    unordered_set<vector<int>, hashFuction> checkBoard;    //좌표 중복체크를 위함
     
     queue<vector<int>> q;
     q.push({0, 0, 0, 0, 1});    // { 시간, Y1좌표, X1좌표, Y2좌표, X2좌표 }
