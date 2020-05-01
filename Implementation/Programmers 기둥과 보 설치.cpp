@@ -32,7 +32,7 @@ bool isPossibleCreateBo(int x, int y, set<pair<int, int>> &pi, set<pair<int, int
 bool isPossibleDeletePi(int x, int y, set<pair<int, int>> &pi, set<pair<int, int>> &bo) {
     pi.erase({x, y});
     
-    for (auto i : pi)
+    for (auto const &i : pi)
     {
         if (!isPossibleCreatePi(i.first, i.second, pi, bo))
         {
@@ -41,7 +41,7 @@ bool isPossibleDeletePi(int x, int y, set<pair<int, int>> &pi, set<pair<int, int
         }
     }
     
-    for (auto i : bo)
+    for (auto const &i : bo)
     {
         if (!isPossibleCreateBo(i.first, i.second, pi, bo))
         {
@@ -57,7 +57,7 @@ bool isPossibleDeletePi(int x, int y, set<pair<int, int>> &pi, set<pair<int, int
 bool isPossibleDeleteBo(int x, int y, set<pair<int, int>> &pi, set<pair<int, int>> &bo) {
     bo.erase({x, y});
     
-    for (auto i : pi)
+    for (auto const &i : pi)
     {
         if (!isPossibleCreatePi(i.first, i.second, pi, bo))
         {
@@ -66,7 +66,7 @@ bool isPossibleDeleteBo(int x, int y, set<pair<int, int>> &pi, set<pair<int, int
         }
     }
     
-    for (auto i : bo)
+    for (auto const &i : bo)
     {
         if (!isPossibleCreateBo(i.first, i.second, pi, bo))
         {
@@ -135,9 +135,9 @@ vector<vector<int>> solution(int n, vector<vector<int>> build_frame) {
     }
     
     //pi, bo에 있는 원소를 answer에 담고 기준에 따라 정렬
-    for (auto i : pi)
+    for (auto const &i : pi)
         answer.push_back({i.first, i.second, PI});
-    for (auto i : bo)
+    for (auto const &i : bo)
         answer.push_back({i.first, i.second, BO});
     
     sort(answer.begin(), answer.end(), cmp);
