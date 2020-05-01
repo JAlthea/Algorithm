@@ -40,9 +40,10 @@ int solution(vector<vector<int>> board) {
         if (y2 == N && x2 == N)
             return time;
         
-        if (checkBoard.find({y1, x1, y2, x2}) != checkBoard.end())
+        vector<int> tmpObject {y1, x1, y2, x2};
+        if (checkBoard.find(tmpObject) != checkBoard.end())
             continue;
-        checkBoard.insert({y1, x1, y2, x2});
+        checkBoard.insert(move(tmpObject));
         
         for (int i=0; i<4; i++) //로봇의 4방향 이동
         {
