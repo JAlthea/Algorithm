@@ -64,9 +64,10 @@ string addString(string& answer, string& now) {
             checkedUp = true;
         }
     }
-
+    
+    tmp = result.substr(1);
     if (checkedUp)
-        answer = addString(result.substr(1), answer);
+        answer = addString(tmp, answer);
     return answer;
 }
 
