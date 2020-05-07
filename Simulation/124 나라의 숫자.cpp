@@ -65,21 +65,12 @@ string addString(string& answer, string& now) {
         }
     }
 
-    /*
     if (checkedUp)
         answer = addString(result.substr(1), answer);
     return answer;
-    */
-    
-    if (checkedUp)
-        answer = addString(result, answer);   
-    int count = 0;
-    for (int i=0; answer[i] == '0'; i++)
-        count++;
-    return count ? answer.substr(count) : answer;
-
 }
 
+//#1
 string solution(int n) {
     string answer = "";
     while (n) {
@@ -89,3 +80,20 @@ string solution(int n) {
     }
     return answer;
 }
+
+//#2
+/*
+string solution(int n) {
+    string answer = "";
+    while (n) {
+        int a = n % 3;
+        n /= 3;
+        if (a == 0)
+            n -= 1;
+    
+        answer = "412"[a] + answer;
+    }
+
+    return answer;
+}
+*/
