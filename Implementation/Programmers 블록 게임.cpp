@@ -44,7 +44,7 @@ int solution(vector<vector<int>> board) {
                 v[board[i][j]].insert({i, j});
 
     int answer = 0;
-    for (int i=1; i<201; i++)
+    for (int i=1; i<201; i++)   //Simulation
     {
         set<pair<int, int>> s = v[i];
         if (s.empty())
@@ -54,9 +54,9 @@ int solution(vector<vector<int>> board) {
 
         answer++;
         v[i] = set<pair<int, int>>();
-        for (auto p : s)
+        for (auto &p : s)
             board[p.first][p.second] = 0;
-        i = 0;
+        i = 0;  //다시 처음부터 검사
     }
 
     return answer;
