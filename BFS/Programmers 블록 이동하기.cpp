@@ -4,7 +4,7 @@
 #include <algorithm>
 using namespace std;
 
-struct hashFuction {
+struct hashFunction {
     size_t operator()(const vector<int> &a) const {
         int resultA = 0;
         int digit = 1;
@@ -22,7 +22,7 @@ int solution(vector<vector<int>> board) {
     const int dy[] = { 0, 1, -1, 0 };
     const int dx[] = { 1, 0, 0, -1 };
     int answer = 0;
-    unordered_set<vector<int>, hashFuction> checkBoard;    //좌표 중복체크를 위함
+    unordered_set<vector<int>, hashFunction> checkBoard;    //좌표 중복체크를 위함
     
     queue<vector<int>> q;
     q.push({0, 0, 0, 0, 1});    // { 시간, Y1좌표, X1좌표, Y2좌표, X2좌표 }
