@@ -2,15 +2,15 @@
 using namespace std;
 
 struct hashFunction {
-    size_t operator()(const vector<int> &a) const {
-        return a[0] * a[2] + a[1] * a[3];
-    }
+	size_t operator()(const vector<int> &a) const {
+		return a[0] * a[2] + a[1] * a[3];
+	}
 };
 
 int main()
 {
-    ios::sync_with_stdio(0); cin.tie(0);
-    int l, n;
+	ios::sync_with_stdio(0); cin.tie(0);
+	int l, n;
 	cin >> l >> n;
 	vector<pair<int, int>> info(n + 1);
 	int time;
@@ -42,6 +42,8 @@ int main()
 		int ny = y + dy[d] * time;
 		int nx = x + dx[d] * time;
 
+		//printf("(%d, %d)\n", nx, ny);
+
 		bool isBreak = false;
 		long long minTime = LLONG_MAX;
 		for (auto &p : body)	//방향 전환 전에 몸통에 부딪히는 경우
@@ -62,11 +64,13 @@ int main()
 			{
 				if (((x <= ax && ax <= nx) && (ay <= y && y <= by)) || ((x >= ax && ax >= nx) && (ay <= y && y <= by)))
 				{
+					printf("answer : (%d, %d) (%d, %d)\n", ax, ay, bx, by);
 					minTime = min(minTime, t + abs(ax - x));
 					isBreak = true;
 				}
 				else if (((x <= ax && ax <= nx) && (y <= ay && ay <= ny)) || ((x >= ax && ax >= nx) && (y <= ay && ay <= ny)))
 				{
+					printf("answer : (%d, %d) (%d, %d)\n", ax, ay, bx, by);
 					minTime = min(minTime, t + abs(ay - y));
 					isBreak = true;
 				}
@@ -75,11 +79,13 @@ int main()
 			{
 				if (((y <= ay && ay <= ny) && (ax <= x && x <= bx)) || ((y >= ay && ay >= ny) && (ax <= x && x <= bx)))
 				{
+					printf("answer : (%d, %d) (%d, %d)\n", ax, by, bx, by);
 					minTime = min(minTime, t + abs(ay - y));
 					isBreak = true;
 				}
 				else if (((y <= ay && ay <= ny) && (x <= ax && ax <= nx)) || ((y >= ay && ay >= ny) && (x <= ax && ax <= nx)))
 				{
+					printf("answer : (%d, %d) (%d, %d)\n", ax, by, bx, by);
 					minTime = min(minTime, t + abs(ax - x));
 					isBreak = true;
 				}
