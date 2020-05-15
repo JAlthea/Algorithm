@@ -42,8 +42,6 @@ int main()
 		int ny = y + dy[d] * time;
 		int nx = x + dx[d] * time;
 
-		//printf("(%d, %d)\n", nx, ny);
-
 		bool isBreak = false;
 		long long minTime = LLONG_MAX;
 		for (auto &p : body)	//방향 전환 전에 몸통에 부딪히는 경우
@@ -64,13 +62,11 @@ int main()
 			{
 				if (((x <= ax && ax <= nx) && (ay <= y && y <= by)) || ((x >= ax && ax >= nx) && (ay <= y && y <= by)))
 				{
-					printf("answer : (%d, %d) (%d, %d)\n", ax, ay, bx, by);
 					minTime = min(minTime, t + abs(ax - x));
 					isBreak = true;
 				}
 				else if (((x <= ax && ax <= nx) && (y <= ay && ay <= ny)) || ((x >= ax && ax >= nx) && (y <= ay && ay <= ny)))
 				{
-					printf("answer : (%d, %d) (%d, %d)\n", ax, ay, bx, by);
 					minTime = min(minTime, t + abs(ay - y));
 					isBreak = true;
 				}
@@ -79,13 +75,11 @@ int main()
 			{
 				if (((y <= ay && ay <= ny) && (ax <= x && x <= bx)) || ((y >= ay && ay >= ny) && (ax <= x && x <= bx)))
 				{
-					printf("answer : (%d, %d) (%d, %d)\n", ax, by, bx, by);
 					minTime = min(minTime, t + abs(ay - y));
 					isBreak = true;
 				}
 				else if (((y <= ay && ay <= ny) && (x <= ax && ax <= nx)) || ((y >= ay && ay >= ny) && (x <= ax && ax <= nx)))
 				{
-					printf("answer : (%d, %d) (%d, %d)\n", ax, by, bx, by);
 					minTime = min(minTime, t + abs(ax - x));
 					isBreak = true;
 				}
