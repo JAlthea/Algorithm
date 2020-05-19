@@ -10,14 +10,14 @@ inline int adjustPower(int power, int i) { return i > 3 ? power - 1 : power; }
 int main()
 {
 	int k, w, h;
-    scanf("%d %d %d", &k, &w, &h);
+	scanf("%d %d %d", &k, &w, &h);
 	for (int i = 0; i < h; i++)
 		for (int j = 0; j < w; j++)
 			scanf("%d", &board[i][j]);
 
 	queue<vector<int>> q;
 	q.push({ 0, k, 0, 0 });
-    check[0][0][k]++;
+	check[0][0][k]++;
 	while (!q.empty())
 	{
 		vector<int> v = q.front(); q.pop();
@@ -35,7 +35,7 @@ int main()
 		for (int i = 0; i < 12; i++)
 		{
             if (i > 3 && power == 0)
-                continue;
+				continue;
             
 			int ny = y + dy[i];
 			int nx = x + dx[i];
@@ -46,7 +46,7 @@ int main()
 			if (board[ny][nx] || check[ny][nx][np])
 				continue;
             
-            check[ny][nx][np]++;
+        	check[ny][nx][np]++;
 			q.push({ count + 1, np, ny, nx });
 		}
 	}
