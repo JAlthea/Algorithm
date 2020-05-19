@@ -34,19 +34,19 @@ int main()
 
 		for (int i = 0; i < 12; i++)
 		{
-            if (i > 3 && power == 0)
+			if (i > 3 && power == 0)
 				continue;
             
 			int ny = y + dy[i];
 			int nx = x + dx[i];
-            int np = adjustPower(power, i);
+			int np = adjustPower(power, i);
 			if (ny < 0 || nx < 0 || ny >= h || nx >= w)
 				continue;
 
 			if (board[ny][nx] || check[ny][nx][np])
 				continue;
             
-            check[ny][nx][np]++;
+			check[ny][nx][np]++;
 			q.push({ count + 1, np, ny, nx });
 		}
 	}
