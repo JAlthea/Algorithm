@@ -1,4 +1,4 @@
-#include<ios>
+#include <ios>
 
 int n, m, d[9];
 bool check[9];
