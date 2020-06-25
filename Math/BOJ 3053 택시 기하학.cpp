@@ -1,6 +1,6 @@
 #import <ios>
-int main(double n)
+int main(int n)
 {
-    scanf("%lf", &n);
-    printf("%f %f", n * n * 3.141592653589, 2 * n * n);
+    scanf("%d", &n);
+    printf("%f %f", n * n * 3.14159265359, 2.0 * n * n);
 }
