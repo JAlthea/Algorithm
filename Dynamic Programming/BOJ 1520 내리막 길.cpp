@@ -23,7 +23,7 @@ int main()
 	sort(c.begin(), c.end(), greater<vector<int>>());
 
 	check[1][1] = 1;
-	for (int i = 0; i < m*n; i++)
+	for (int i = 0; i < m * n; i++)
 	{
 		int weight = c[i][0];
 		int y = c[i][1];
