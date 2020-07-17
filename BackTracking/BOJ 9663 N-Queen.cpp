@@ -5,8 +5,12 @@ int d[15], size, count;
 bool check(int i, int j)
 {
     for (int y = i - 1; y > 0; --y)
-        if (d[y] == j || abs(j - d[y]) == i - y) 
+    {
+        if (d[y] == j || abs(j - d[y]) == i - y)
+        {
             return false;
+        }
+    }
     return true;
 }
 
