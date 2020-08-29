@@ -76,8 +76,8 @@ int main()
 	}
 
 	a[0] = 0;
-    m = 1;
-	for(int i=1; i<=n;	++i)
+	m = 1;
+	for(int i=1; i<=n; ++i)
 	{
 		if(a[i] - a[i - 1] >= 2)
 		{
