@@ -7,10 +7,10 @@ int main()
     int n, x;
     priority_queue<int> pq;
     scanf("%d", &n);
-    for(int i=0; i<n; ++i)
+    for (int i=0; i<n; ++i)
     {
         scanf("%d", &x);
-        if(x)
+        if (x)
             pq.push(x);
         else
         {
