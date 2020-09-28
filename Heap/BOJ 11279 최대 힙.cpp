@@ -14,7 +14,7 @@ int main()
             pq.push(x);
         else
         {
-            if(pq.empty())
+            if (pq.empty())
             {
                 puts("0");
                 continue;
