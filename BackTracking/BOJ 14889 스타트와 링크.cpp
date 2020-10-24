@@ -20,11 +20,11 @@ int main()
 		vector<int> A;
 		vector<int> B;
 		for (int i = 0; i < n; i++)
-            choice[i] ? A.push_back(i + 1) : B.push_back(i + 1);
+		choice[i] ? A.push_back(i + 1) : B.push_back(i + 1);
 		int a = 0, b = 0;
-        for (int i = 0; i < A.size(); i++)
-		    for (int j = 0; j < A.size(); j++)
-			    a += v[A[i] - 1][A[j] - 1], b += v[B[i] - 1][B[j] - 1];
+		for (int i = 0; i < A.size(); i++)
+			for (int j = 0; j < A.size(); j++)
+				a += v[A[i] - 1][A[j] - 1], b += v[B[i] - 1][B[j] - 1];
 
 		if (abs(a - b) < min)
 			min = abs(a - b);
