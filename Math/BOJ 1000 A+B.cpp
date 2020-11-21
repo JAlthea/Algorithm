@@ -1,7 +1,7 @@
-#import<ios>
+#import <ios>
 int main()
 { 
-  int a,b;
-  scanf("%d%d",&a,&b);
-  printf("%d",a+b);
+  int a, b;
+  scanf("%d%d", &a, &b);
+  printf("%d", a + b);
 }
