@@ -9,5 +9,5 @@ int main()
 {
 	short a, b;
 	scanf("%hd %hd", &a, &b);
-	printf("%.10f\n", div(a, b));
+	printf("%.10lf\n", div(a, b));
 }
