@@ -4,36 +4,19 @@ int d[5001];
 
 int f(int n)
 {
-	if (n == 0)
-		return 0;
-	if (n < 3)
-		return -1;
-	if (d[n] > 0)
-		return d[n];
+	if (n == 0) return 0;
+	if (n < 3) return -1;
+	if (d[n]) return d[n];
 
-	int count = 0, count2 = 0;
-
-	if (n >= 5)
-	{
-		count = f(n - 5);
-		if (count != -1)
-			count++;
-	}
-	if (n >= 3)
-	{
-		count2 = f(n - 3);
-		if (count2 != -1)
-			count2++;
-	}
+	int c1 = f(n - 5);
+	int c2 = f(n - 3);
+	if (c1 != -1) c1++;
+	if (c2 != -1) c2++;
  
-	if (count > 0 && count2 > 0)
-		d[n] = count < count2 ? count : count2;
-	else if (count > 0)
-		d[n] = count;
-	else if (count2 > 0)
-		d[n] = count2;
-	else
-		d[n] = -1;
+	if (c1 && c2) d[n] = c1 < c2 ? c1 : c2;
+	else if (c1) d[n] = c1;
+	else if (c2) d[n] = c2;
+	else d[n] = -1;
 
 	return d[n];
 }
