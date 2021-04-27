@@ -1,4 +1,5 @@
 # Algorithm
+View & Search : https://github1s.com/JAlthea/Algorithm <br>
 Welcome~🎲🎨 <br>
 * Problem Source Site
 <br>&nbsp;&nbsp;[BaekJoon Online Judge](https://www.acmicpc.net/) <img src="https://www.acmicpc.net/safari-pinned-tab.svg" color="#0076c0" width="20" height="20"></img>   &nbsp;:&nbsp;&nbsp; [![Solved.ac mini profile](http://mazassumnida.wtf/api/mini/generate_badge?boj=practice1)](https://solved.ac/practice1) &nbsp;https://www.acmicpc.net/user/practice1
