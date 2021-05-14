@@ -1,14 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
+int main() {
     int k;
     cin >> k;
     
     int a = 0, b = 1, t;
-    for (int i = 2; i <= k; ++i)
-    {
+    for (int i = 2; i <= k; ++i) {
         t = b;
         b = a + b;
         a = t;
