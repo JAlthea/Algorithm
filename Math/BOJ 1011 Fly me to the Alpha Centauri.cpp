@@ -1,4 +1,5 @@
 #include <cstdio>
+
 int t, x, y;
 int main() 
 {
