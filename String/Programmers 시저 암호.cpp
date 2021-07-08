@@ -8,10 +8,11 @@ string solution(string s, int n) {
         if (s[i] == ' ')
             continue;
         
-        int tmp = static_cast<int>(s[i]) + n;
+        int shift = static_cast<int>(s[i]) + n;
+        char c = s[i];
         
         s[i] += n;
-        if (tmp > 122 || (tmp > 90 && s[i] <= 90))
+        if (shift > 122 || (shift > 90 && c <= 90))
             s[i] -= 26;
     }
     
