@@ -31,9 +31,9 @@ vector<int> solution(int m, int n, vector<vector<int>> picture) {
                 ++visited[p.y][p.x];
                 ++count;
                 
-                for (int i = 0; i < 4; ++i) {
-                    int ny = p.y + dy[i];
-                    int nx = p.x + dx[i];
+                for (int k = 0; k < 4; ++k) {
+                    int ny = p.y + dy[k];
+                    int nx = p.x + dx[k];
                     
                     if (ny < 0 || nx < 0 || ny >= m || nx >= n)
                         continue;
