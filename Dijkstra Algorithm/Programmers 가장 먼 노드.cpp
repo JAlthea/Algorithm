@@ -35,7 +35,7 @@ int solution(int n, vector<vector<int>> edge)  {
     int max = dist[1];
     for (int i = 1; i <= n; ++i) {
         if (max == dist[i])
-            answer++;
+            ++answer;
         else
             break;
     }
