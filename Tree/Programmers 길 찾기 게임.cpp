@@ -25,23 +25,23 @@ int makeTree(pair<int, int> root, int index, int size) {
     if (size <= 0) return -1;
     if (size == 1) return root.first;
     
-	  int rootIndex = -1, leftSize = 0, rightSize = 0, nextLevel = 0;
-	  pair<int, int> leftRoot = { -1, -1 }, rightRoot = { -1, -1 };
+    int rootIndex = -1, leftSize = 0, rightSize = 0, nextLevel = 0;
+    pair<int, int> leftRoot = { -1, -1 }, rightRoot = { -1, -1 };
 
-	  for (int i = index; i < index + size; ++i) {    //root index
-		    if (root.first == nodes[i].first) rootIndex = i;
-		    if (nextLevel < nodes[i].second && root.second != nodes[i].second) nextLevel = nodes[i].second;
-	  }
+    for (int i = index; i < index + size; ++i) {    //root index
+        if (root.first == nodes[i].first) rootIndex = i;
+	if (nextLevel < nodes[i].second && root.second != nodes[i].second) nextLevel = nodes[i].second;
+    }
     
-	  for (int i = index; i < index + size; ++i) {    //leftRoot, rightRoot
-		    if (nextLevel == nodes[i].second && root.first > nodes[i].first) leftRoot = nodes[i];
-		    else if (nextLevel == nodes[i].second && root.first < nodes[i].first) rightRoot = nodes[i];
-	  }
+    for (int i = index; i < index + size; ++i) {    //leftRoot, rightRoot
+        if (nextLevel == nodes[i].second && root.first > nodes[i].first) leftRoot = nodes[i];
+	else if (nextLevel == nodes[i].second && root.first < nodes[i].first) rightRoot = nodes[i];
+    }
     
-	  leftSize = rootIndex - index;
-	  rightSize = size - 1 - leftSize;
+    leftSize = rootIndex - index;
+    rightSize = size - 1 - leftSize;
     
-	  if (leftRoot.first != -1) tree[root.first].first = makeTree(leftRoot, index, leftSize);
+    if (leftRoot.first != -1) tree[root.first].first = makeTree(leftRoot, index, leftSize);
     if (rightRoot.first != -1) tree[root.first].second = makeTree(rightRoot, rootIndex + 1, rightSize);
 	  return root.first;
 }
