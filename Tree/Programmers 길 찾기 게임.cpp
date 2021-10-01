@@ -43,7 +43,7 @@ int makeTree(pair<int, int> root, int index, int size) {
     
     if (leftRoot.first != -1) tree[root.first].first = makeTree(leftRoot, index, leftSize);
     if (rightRoot.first != -1) tree[root.first].second = makeTree(rightRoot, rootIndex + 1, rightSize);
-	  return root.first;
+    return root.first;
 }
 
 vector<vector<int>> solution(vector<vector<int>> nodeinfo) {
