@@ -8,7 +8,9 @@ int TSP(int from, int visited) {
 		return dist[from][0];
 	
 	int &ret = cache[from][visited];
-	if (ret) return ret;
+	if (ret) 
+		return ret;
+	
 	ret = INT_MAX >> 1;
 	for (int to = 0; to < n; ++to) {
 		if (visited & (1 << to)) 
