@@ -7,14 +7,17 @@ int r, c, ret;
 const int dy[] = { 1, -1, 0, 0 };
 const int dx[] = { 0, 0, 1, -1 };
 
-void backTracking(int y, int x, int count) {
-	for (int i = 0; i < 4; ++i) {
+void backTracking(int y, int x, int count)
+{
+	for (int i = 0; i < 4; ++i) 
+	{
 		int ny = y + dy[i];
 		int nx = x + dx[i];
 		if (ny < 0 || nx < 0 || ny >= r || nx >= c)
 			continue;
 
-		if (s[d[ny][nx] - 'A']) {
+		if (s[d[ny][nx] - 'A'])
+		{
 			ret = max(ret, count);
 			continue;
 		}
@@ -30,15 +33,13 @@ void backTracking(int y, int x, int count) {
 	}
 }
 
-int main() {
-
+int main() 
+{
 	cin >> r >> c;
 	cin.ignore();
-	for (int i = 0; i < r; ++i) {
-		for (int j = 0; j < c; ++j) {
+	for (int i = 0; i < r; ++i)
+		for (int j = 0; j < c; ++j)
 			cin >> d[i][j];
-		}
-	}
 
 	v[0][0] = true;
 	s[d[0][0] - 'A'] = true;
