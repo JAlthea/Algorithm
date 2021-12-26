@@ -7,7 +7,7 @@ bool v[9][9];
 bool isSuccess;
 
 bool isSudoku(int y, int x, char value) {
-	for (int i = 0; i < 9; i++) {
+	for (int i = 0; i < 9; ++i) {
 		if (i == y)
 			continue;
 
@@ -15,7 +15,7 @@ bool isSudoku(int y, int x, char value) {
 			return false;
 	}
 
-	for (int i = 0; i < 9; i++) {
+	for (int i = 0; i < 9; ++i) {
 		if (i == x)
 			continue;
 
@@ -25,8 +25,8 @@ bool isSudoku(int y, int x, char value) {
 
 	int ny = y / 3 * 3;
 	int nx = x / 3 * 3;
-	for (int i = ny; i < ny + 3; i++) {
-		for (int j = nx; j < nx + 3; j++) {
+	for (int i = ny; i < ny + 3; ++i) {
+		for (int j = nx; j < nx + 3; ++j) {
 			if (i == y && j == x)
 				continue;
 
@@ -59,29 +59,22 @@ void backTrackingSudoku(int y, int x, int count) {
 	}
 
 	if (!v[y][x]) {
-		if (x == 8)
-			backTrackingSudoku(y + 1, 0, count);
-		else
-			backTrackingSudoku(y, x + 1, count);
+		x == 8 ? backTrackingSudoku(y + 1, 0, count) : backTrackingSudoku(y, x + 1, count);
+		return;
 	}
-	else {
-		for (int k = 1; k <= 9; ++k) {
-			if (isSudoku(y, x, k + '0'))
-				d[y][x] = k + '0';
-			else
-				continue;
+	
+	for (int k = 1; k <= 9; ++k) {
+		if (!isSudoku(y, x, k + '0'))
+			continue;
 
-			if (x == 8)
-				backTrackingSudoku(y + 1, 0, count + 1);
-			else
-				backTrackingSudoku(y, x + 1, count + 1);
+		d[y][x] = k + '0';
+		x == 8 ? backTrackingSudoku(y + 1, 0, count + 1) : backTrackingSudoku(y, x + 1, count + 1);
 
-			if (isSuccess)
-				return;
-		}
-
-		d[y][x] = '0';
+		if (isSuccess)
+			return;
 	}
+
+	d[y][x] = '0';
 }
 
 int main() {
@@ -110,11 +103,9 @@ int main() {
 			continue;
 		}
 
-		for (int i = 0; i < 9; ++i) {
+		for (int i = 0; i < 9; cout << '\n', ++i)
 			for (int j = 0; j < 9; ++j)
 				cout << d[i][j];
-			cout << '\n';
-		}
 		cout << '\n';
 	}
 }
