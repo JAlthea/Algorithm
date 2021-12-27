@@ -19,11 +19,12 @@ void nQueen() {
             j = 1;
             if (++i <= size) 
                 continue;
-        } else if (++j <= size)
+        } 
+        else if (++j <= size)
             continue;
         
         if (i > size) {
-            count++;
+            ++count;
             j = d[--i] + 1;
         }
         
