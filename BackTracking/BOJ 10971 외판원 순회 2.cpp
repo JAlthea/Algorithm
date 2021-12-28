@@ -3,25 +3,23 @@ using namespace std;
 
 int minCost, startIndex;
 
-void TSP(vector<vector<int>> &m, vector<bool> &checked, int from, int cost, int count)
-{
-	if (count == checked.size() && m[from][startIndex] != 0)
-	{
+void TSP(vector<vector<int>> &m, vector<bool> &checked, int from, int cost, int count) {
+	if (count == checked.size() && m[from][startIndex] != 0) {
 		minCost = min(minCost, cost + m[from][startIndex]);
 		return;
 	}
 
-	for (int to = 0; to < checked.size(); ++to)
-	{
-		if (checked[to] || m[from][to] == 0) continue;
+	for (int to = 0; to < checked.size(); ++to) {
+		if (checked[to] || m[from][to] == 0) 
+			continue;
+
 		checked[to] = true;
 		TSP(m, checked, to, cost + m[from][to], count + 1);
 		checked[to] = false;
 	}
 }
 
-int main()
-{
+int main() {
 	ios::sync_with_stdio(0); cin.tie(0);
 	int n;
 	cin >> n;
