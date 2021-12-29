@@ -4,10 +4,8 @@ using namespace std;
 
 int d[4], Max = -1e9 - 1, Min = 1e9 + 1;
 
-void backTrackingExpr(vector<int> &v, int pos, int result)
-{
-	for (int i = 0; i < 4; i++)
-	{
+void backTrackingExpr(vector<int> &v, int pos, int result) {
+	for (int i = 0; i < 4; ++i) {
 		if (d[i] == 0)
 			continue;
 		
@@ -21,32 +19,29 @@ void backTrackingExpr(vector<int> &v, int pos, int result)
 		else if (i == 3)
 			tmp /= v[pos];
 
-		if (pos == v.size() - 1)
-		{
+		if (pos == v.size() - 1) {
 			if (tmp > Max)
 				Max = tmp;
 			if (tmp < Min)
 				Min = tmp;
 			return;
 		}
-		else
-		{
-			d[i]--;
-			backTrackingExpr(v, pos + 1, tmp);
-			d[i]++;
-		}
+		
+		--d[i];
+		backTrackingExpr(v, pos + 1, tmp);
+		++d[i];
 	}
 }
 
-int main()
-{
+int main() {
 	int n;
 	scanf("%d", &n);
 	vector<int> v(n);
-	for (int i = 0; i < n; i++)
+
+	for (int i = 0; i < n; ++i)
 		scanf("%d", &v[i]);
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 4; ++i)
 		scanf("%d", &d[i]);
 
 	backTrackingExpr(v, 1, v[0]);
