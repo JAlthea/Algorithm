@@ -18,10 +18,10 @@ void backTracking(int index, int count) {
 			isSuperJump = false;
 			backTracking(i, count + k);
 			isSuperJump = true;
+			continue;
 		}
-		else {
-			backTracking(i, count + d[index][i - 1 - index]);
-		}
+		
+		backTracking(i, count + d[index][i - 1 - index]);
 	}
 }
 
