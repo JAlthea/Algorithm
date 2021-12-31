@@ -25,16 +25,17 @@ int wordBackTracking(vector<string> & words, int index) {
             }
             else
                 filteredWords.push_back(words[i]);
+
+            continue;
         }
-        else {
-            nextStart = words[i][index];
-            if (!filteredWords.empty())
-                sum += wordBackTracking(filteredWords, index + 1 + plus);
+        
+        nextStart = words[i][index];
+        if (!filteredWords.empty())
+            sum += wordBackTracking(filteredWords, index + 1 + plus);
             
-            plus = 0;
-            filteredWords = vector<string>();
-            --i;
-        }
+        plus = 0;
+        filteredWords = vector<string>();
+        --i;
     }
     
     if (!filteredWords.empty())
