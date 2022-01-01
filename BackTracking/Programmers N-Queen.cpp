@@ -30,10 +30,10 @@ int solution(int n) {
     int x = 0;
     int y = 0;
     for (int i = 0; i < n; ++i) {
-        d.push_back({ x++, i });
+        d.push_back({ ++x, i });
 
         int a = 0, b = 0;
-        while (1) {
+        while (true) {
             d.push_back({ x, y });
 
             if (check(d)) {
@@ -53,9 +53,8 @@ int solution(int n) {
 
             if (y == n) {
                 y = 0;
-
                 bool breaker = false;
-                while (1) {
+                while (true) {
                     if (d.size() == 1) {
                         breaker = true;
                         x = 0;
