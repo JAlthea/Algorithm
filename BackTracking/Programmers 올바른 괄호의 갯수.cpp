@@ -1,20 +1,20 @@
 #include <vector>
 using namespace std;
 
-int AllParenCase(int n, int left, int right) { 
+int getCountParenCase(int n, int left, int right) { 
     if (n == right)
         return 1;
     
     int countLeft = 0, countRight = 0;
     if (left < n)
-        countLeft = AllParenCase(n, left + 1, right);
+        countLeft = getCountParenCase(n, left + 1, right);
     
     if (left != right)
-        countRight = AllParenCase(n, left, right + 1);
+        countRight = getCountParenCase(n, left, right + 1);
     
     return countLeft + countRight;
 }
 
 int solution(int n) {
-    return AllParenCase(n, 0, 0);
+    return getCountParenCase(n, 0, 0);
 }
