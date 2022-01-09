@@ -11,19 +11,17 @@ const int by[2][4] = {{ 1, 1, 0, 0}, { 1, -1, 0, 0}};    //대각선 아래
 const int bx[2][4] = {{ 1, -1, 0, 0}, { 1, 1, 0, 0}};
 const int ry[] = { -1, -1, -1, 0, 0, 0, 1, 1, 1 };    //회전
 const int rx[] = { -1, 0, 1, -1, 0, 1, -1, 0, 1 };
-int main()
-{
+
+int main() {
 	ios::sync_with_stdio(0); cin.tie(0);
 	int n;
 	cin >> n;
 	cin.ignore();
 	vector<vector<char>> board(n, vector<char>(n));
-	vector<vector<int>> B;
-	vector<vector<int>> E;
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < n; j++)
-		{
+	vector<vector<int>> B, E;
+
+	for (int i = 0; i < n; ++i) {
+		for (int j = 0; j < n; ++j) {
 			cin >> board[i][j];
 			if (board[i][j] == 'B')
 				B.push_back({ i, j });
@@ -43,12 +41,11 @@ int main()
 		direction = VERTICAL;
 	vector<int> EInfo = { E[1][0], E[1][1], direction };
 
-
 	set<vector<int>> check;
 	queue<vector<int>> q;
 	q.push(bInfo);
-	while (!q.empty())
-	{
+
+	while (!q.empty()) {
 		vector<int> v = q.front(); q.pop();
 		int count = v[0];
 		int y = v[1];
@@ -58,8 +55,7 @@ int main()
 		int goalX = EInfo[1];
 		int goalD = EInfo[2];
 
-		if (y == goalY && x == goalX && d == goalD)
-		{
+		if (y == goalY && x == goalX && d == goalD) {
 			cout << count;
 			return 0;
 		}
@@ -69,14 +65,14 @@ int main()
 		check.insert({ y, x, d });
 
 		//Move
-		for (int i = 0; i < 4; i++)
-		{
+		for (int i = 0; i < 4; ++i) {
 			int ny = y + dy[d][i];
 			int nx = x + dx[d][i];
 			int nty = y + ty[d][i];
 			int ntx = x + tx[d][i];
 			int nby = y + by[d][i];
 			int nbx = x + bx[d][i];
+
 			if (ny < 0 || nx < 0 || ny >= n || nx >= n)
 				continue;
 
@@ -89,8 +85,7 @@ int main()
 			if (board[ny][nx] == '1' || board[nty][ntx] == '1' || board[nby][nbx] == '1')
 				continue;
 
-			if (i >= 2)
-			{
+			if (i >= 2) {
 				ny = y + (dy[d][i] / 2);
 				nx = x + (dx[d][i] / 2);
 			}
@@ -99,23 +94,23 @@ int main()
 		}
 
 		//Rotate
-		bool isRotate = true;
-		for (int i = 0; i < 9; i++)
-		{
+		bool isRotated = true;
+		for (int i = 0; i < 9; ++i) {
 			int nry = y + ry[i];
 			int nrx = x + rx[i];
-			if (nry < 0 || nrx < 0 || nry >= n || nrx >= n)
-			{
-				isRotate = false;
+
+			if (nry < 0 || nrx < 0 || nry >= n || nrx >= n) {
+				isRotated = false;
 				break;
 			}
-			if (board[nry][nrx] == '1')
-			{
-				isRotate = false;
+
+			if (board[nry][nrx] == '1') {
+				isRotated = false;
 				break;
 			}
 		}
-		if (isRotate)
+
+		if (isRotated)
 			q.push({ count + 1, y, x, (d + 1) % 2 });
 	}
 
