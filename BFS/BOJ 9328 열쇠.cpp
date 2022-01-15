@@ -5,7 +5,7 @@ const int dy[] = { 1, -1, 0, 0 };
 const int dx[] = { 0, 0, 1, -1 };
 
 struct cmp {
-	size_t operator()(const vector<int> & a, const vector<int> & b) const {
+	size_t operator()(const vector<int> &a, const vector<int> &b) const {
 		return a[2] < b[2];
 	}
 };
@@ -14,11 +14,13 @@ int main() {
 	ios::sync_with_stdio(0); cin.tie(0);
 	int t;
 	cin >> t;
+
 	while (t--) {
 		int h, w;
 		cin >> h >> w;
 		cin.ignore();
-		vector<vector<char>> board(h, vector<char>(w));    //2D map
+		vector<vector<char>> board(h, vector<char>(w));    // 2D Map
+
 		for (int i = 0; i < h; ++i) {
 			for (int j = 0; j < w; ++j) {
 				cin >> board[i][j];
@@ -26,7 +28,7 @@ int main() {
 		}
 		cin.ignore();
 
-		int keys[27] = { 0 };    //key for unlock
+		int keys[27] = { 0 };    // Key for unlock
 		string str;
 		getline(cin, str);
 		for (int i = 0; i < str.size(); ++i) {
@@ -35,7 +37,7 @@ int main() {
 			keys[str[i] - 'a'] = 1;
 		}
 
-		vector<pair<int, int>> locks[27];    //locked position
+		vector<pair<int, int>> locks[27];    // Locked position
 		vector<vector<bool>> visited(h, vector<bool>(w, false));
 		int ret = 0;
 
@@ -97,7 +99,7 @@ int main() {
 			if (keys[i] != 1)
 				continue;
 
-			int ResearchIndex = -1;
+			int researchIndex = -1;
 			keys[i] = -1;
 			for (int j = locks[i].size() - 1; j >= 0; --j) {
 				auto[a, b] = locks[i][j];
@@ -117,9 +119,9 @@ int main() {
 
 					if (islower(board[y][x]) && keys[board[y][x] - 'a'] == 0) {
 						keys[board[y][x] - 'a'] = 1;
-                        if (ResearchIndex == -1)
-                            ResearchIndex = board[y][x] - 'a';
-                        ResearchIndex = min(ResearchIndex, board[y][x] - 'a');
+                        if (researchIndex == -1)
+                            researchIndex = board[y][x] - 'a';
+                        researchIndex = min(researchIndex, board[y][x] - 'a');
 					}
 
 					if (isupper(board[y][x]) && keys[tolower(board[y][x]) - 'a'] == 0) {
@@ -142,11 +144,11 @@ int main() {
 				}
 			}
 
-			if (ResearchIndex != -1) {
-				keys[ResearchIndex] = 1;
-				if (i < ResearchIndex)
+			if (researchIndex != -1) {
+				keys[researchIndex] = 1;
+				if (i < researchIndex)
 					continue;
-				i = ResearchIndex - 1;
+				i = researchIndex - 1;
 			}
 		}
 
