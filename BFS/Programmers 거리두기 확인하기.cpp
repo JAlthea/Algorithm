@@ -17,10 +17,11 @@ vector<int> solution(vector<vector<string>> places) {
             for (int j = 0; j < 5; ++j) {
                 if (places[k][i][j] != 'P' || visited[i][j])
                     continue;
-
                 visited[i][j] = true;
+
                 queue<vector<int>> q;
                 q.push({ i, j, 0 });
+
                 while (!q.empty()) {
                     auto p = q.front(); q.pop();
                     int y = p[0];
@@ -29,7 +30,7 @@ vector<int> solution(vector<vector<string>> places) {
                     
                     if (count && places[k][y][x] == 'P') {
                         isKeepDistance = false;
-                        goto endForLoop;
+                        goto exitLoop;
                     }
                     
                     if (count == 2)
@@ -52,9 +53,9 @@ vector<int> solution(vector<vector<string>> places) {
             }
         }
         
-        endForLoop:
+        exitLoop:
         if (isKeepDistance)
-            answer[k]++; 
+            ++answer[k]; 
     }
     
     return answer;
