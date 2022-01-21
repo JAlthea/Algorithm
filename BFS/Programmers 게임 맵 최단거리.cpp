@@ -8,6 +8,7 @@ int solution(vector<vector<int>> maps) {
     int count = 0;
     queue<pair<int, int>> q;
     q.push({ 0, 0 });
+
     while (!q.empty()) {
         auto p = q.front(); q.pop();
         int x = p.first;
@@ -20,11 +21,16 @@ int solution(vector<vector<int>> maps) {
         if (x == n && y == m)
             return count;
 
-        if (x > 0 && maps[x - 1][y] == 1) q.push({ x - 1, y });
-        if (y > 0 && maps[x][y - 1] == 1) q.push({ x, y - 1 });
-        if (x < n && maps[x + 1][y] == 1) q.push({ x + 1, y });
-        if (y < m && maps[x][y + 1] == 1) q.push({ x, y + 1 });
-        count++;
+        if (x > 0 && maps[x - 1][y] == 1) 
+            q.push({ x - 1, y });
+        if (y > 0 && maps[x][y - 1] == 1) 
+            q.push({ x, y - 1 });
+        if (x < n && maps[x + 1][y] == 1) 
+            q.push({ x + 1, y });
+        if (y < m && maps[x][y + 1] == 1) 
+            q.push({ x, y + 1 });
+        
+        ++count;
     }
 
     return -1;
