@@ -8,11 +8,13 @@ int solution(string begin, string target, vector<string> words) {
     for (string i : words)
         if (i.find(target) != string::npos) 
             check = true;
+
     if (!check)
         return 0;
     
     queue<pair<string, int>> q;
     q.push({ begin, 0 });
+
     while (!q.empty()) {
         pair<string, int> p = q.front(); q.pop();
         if (p.first.find(target) != string::npos) 
