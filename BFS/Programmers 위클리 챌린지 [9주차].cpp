@@ -1,12 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int bfs(vector<vector<int>> & edge, int n, int from) {
+int bfs(vector<vector<int>> &edge, int n, int from) {
     int ret = 1;
     vector<vector<bool>> check(n + 1, vector<bool>(n + 1));
     
     queue<int> q;
     q.push(from);
+
     while (!q.empty()) {
         int now = q.front(); q.pop();
         
@@ -17,6 +18,7 @@ int bfs(vector<vector<int>> & edge, int n, int from) {
             
             check[now][to] = true;
             check[to][now] = true;
+            
             q.push(to);
             ++ret;
         }
