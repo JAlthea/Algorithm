@@ -14,6 +14,7 @@ vector<int> solution(int m, int n, vector<vector<int>> picture) {
     const int dx[] = { 0, 1, 0, -1 };
     vector<vector<char>> visited(m, vector<char>(n, 0));
     vector<int> area;
+
     for (int i = 0; i < m; ++i) {
         for (int j = 0; j < n; ++j) {
             if (visited[i][j] || !picture[i][j])
@@ -22,6 +23,7 @@ vector<int> solution(int m, int n, vector<vector<int>> picture) {
             queue<Point> q;
             q.push({ j, i, picture[i][j] });
             int count = 0;
+
             while (!q.empty()) {
                 Point p = q.front(); q.pop();
                 
