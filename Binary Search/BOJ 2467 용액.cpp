@@ -23,6 +23,7 @@ int main() {
 			a = k;
 			b = arr[pos];
 		}
+
 		if (arr[pos - 1] != k && twoSum > abs(arr[pos - 1] + k)) {
 			twoSum = abs(arr[pos - 1] + k);
 			a = k;
