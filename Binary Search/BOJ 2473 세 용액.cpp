@@ -14,6 +14,7 @@ int main() {
 
 	long long threeSum = LLONG_MAX;
 	long long a, b, c;
+
 	for (int i = 0; i < n - 2; ++i) {
 		for (int j = i + 1; j < n - 1; ++j) {
 			long long k = arr[i] + arr[j];
