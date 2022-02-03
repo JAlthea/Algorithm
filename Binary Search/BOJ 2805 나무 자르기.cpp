@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 
-int main()
-{
+int main() {
 	long long n, m;
 	scanf("%lld%lld", &n, &m);
 	std::vector<long long> v(n);
@@ -13,22 +12,22 @@ int main()
 	min = 0;
 	result = 0;
 
-	while (min <= max)
-	{
+	while (min <= max) {
 		mid = (max + min) / 2;
+
 		long long tmp = 0;
 		for (int i = 0; i < n; ++i)
 			if (v[i] - mid > 0)
 				tmp += v[i] - mid;
 
-		if (tmp >= m)
-		{
+		if (tmp >= m) {
 			if (result < mid)
 				result = mid;
 			min = mid + 1;
+			continue;
 		}
-		else
-			max = mid - 1;
+		
+		max = mid - 1;
 	}
 
 	printf("%lld", result);
