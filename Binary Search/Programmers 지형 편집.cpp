@@ -8,6 +8,7 @@ long long f(vector<int> tmp, int h) {
     for (int i = 0; i < tmp.size(); ++i) {
         if (tmp[i] >= h)
             break;
+
         result += h - tmp[i];
     }
     
@@ -20,6 +21,7 @@ long long g(vector<int> tmp, int h) {
     for (int i = tmp.size() - 1; i >= 0; --i) {
         if (tmp[i] <= h)
             break;
+
         result += tmp[i] - h;
     }
     
@@ -44,18 +46,22 @@ long long solution(vector<vector<int>> land, int P, int Q) {
     long long midCount = 0;
     double A = 0;
 
-    while (1) {   
+    while (true) {   
         midH = (maxH + minH) >> 1;
+
         upCount = f(tmp, midH + 1);
         downCount = f(tmp, midH);
         A = abs(upCount - downCount);
         
         if (midH == minH)
             break;
-        if (a < A)
+
+        if (a < A) {
             maxH = midH;
-        else if (a >= A)
-            minH = midH;
+            continue;
+        }
+        
+        minH = midH;
     }
     
     upCount = f(tmp, minH + 1);
@@ -64,9 +70,7 @@ long long solution(vector<vector<int>> land, int P, int Q) {
     
     while (a >= A) {
         ++minH;
-        upCount = f(tmp, minH + 1);
-        downCount = f(tmp, minH);
-        A = abs(upCount - downCount);
+        A = abs(f(tmp, minH + 1) - f(tmp, minH));
     }
     
     return P * f(tmp, minH) + Q * g(tmp, minH);
