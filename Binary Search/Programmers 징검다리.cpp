@@ -8,30 +8,31 @@ int solution(int distance, vector<int> rocks, int n) {
     int mid;
     int answer = 0;
     
-    while (s <= e)
-    {
+    while (s <= e) {
         mid = (s + e) / 2;
+        
         int count = 0;
         int prev = 0;
-        for (int i=0; i<rocks.size(); i++)
-        {
-            if (rocks[i] - prev < mid)
-                count++;
-            else
-                prev = rocks[i];
+        for (int i = 0; i < rocks.size(); ++i) {
+            if (rocks[i] - prev < mid) {
+                ++count;
+                continue;
+            }
+            
+            prev = rocks[i];
         }
+        
         if (distance - prev < mid)
-            count++;
+            ++count;
         
         if (count <= n)
         {
             answer = max(answer, mid);
             s = mid + 1;
+            continue;
         }
-        else
-        {
-            e = mid - 1;
-        }
+
+        e = mid - 1;
     }
     
     return answer;
