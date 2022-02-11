@@ -3,10 +3,7 @@ using namespace std;
 
 int solution(int distance, vector<int> rocks, int n) {
     sort(rocks.begin(), rocks.end());
-    int s = 1;
-    int e = distance;
-    int mid;
-    int answer = 0;
+    int mid, s = 1, e = distance, answer = 0;
     
     while (s <= e) {
         mid = (s + e) / 2;
