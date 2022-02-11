@@ -10,12 +10,13 @@ int solution(vector<int> stones, int k) {
     
     while (s <= e) {
         m = (s + e) / 2;
+        
         int count = 0;
         bool isPossible = true;
         
         for (int i = 0; i < size; ++i) {
             if (stones[i] < m)
-                ++count;    //이게 연속으로 k번 만큼 있으면 건널 수 없다는 판정.
+                ++count;    // 이게 연속으로 k번 만큼 있으면 건널 수 없다는 판정.
             else
                 count = 0;
             
@@ -29,9 +30,10 @@ int solution(vector<int> stones, int k) {
             if (answer < m)
                 answer = m;
             s = m + 1;
+            continue;
         }
-        else
-            e = m - 1;
+        
+        e = m - 1;
     }
 
     return answer;
