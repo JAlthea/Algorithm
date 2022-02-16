@@ -1,5 +1,5 @@
 /*
-//Solution1
+// Solution1
 #include <string>
 #include <vector>
 #include <cmath>
@@ -11,7 +11,7 @@ int solution(int n) {
     int fir = 0;
     int a = 0, b = -1, cnt = 0;
 
-    while (1) {
+    while (true) {
         if (n % 2) {
             if (cnt == 0)
                 fir = i;
@@ -33,7 +33,7 @@ int solution(int n) {
 }
 */
 
-//Solution2
+// Solution2
 #include <string>
 #include <vector>
 #include <algorithm>
@@ -49,7 +49,7 @@ int getCntNum(int n) {
 
 int solution(int n) {
     int nNumCnt = getCntNum(n);
-    while (1) {
+    while (true) {
         ++n;
         if (nNum1Cnt == getCntNum(n))
             return n;
