@@ -7,7 +7,7 @@ long long f(long long n) {
     
     long long ret;
     long long pow2k = 1;
-    while (1) {
+    while (true) {
         if ((n ^ pow2k) == n + pow2k) {
             ret = (n | pow2k) ^ (pow2k / 2);
             break;
