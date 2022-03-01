@@ -23,9 +23,9 @@ long long dfs(int start) {
     return c[start] = parentValue;
 }
 
-//greedy + dfs?
+// Greedy + DFS
 long long solution(vector<int> a, vector<vector<int>> edges) {
-    for (auto & i : a) {
+    for (auto &i : a) {
         c.push_back(i);
     }
     
