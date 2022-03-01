@@ -15,8 +15,10 @@ int solution(int n, vector<vector<int>> computers) {
         stack<int> s;
         s.push(k);
         visited[k] = true;
+        
         while (!s.empty()) {
             int now = s.top(); s.pop();
+            
             for (int i = 0; i < n; ++i) {
                 if (now != i && computers[now][i] && !visited[i]) {
                     s.push(i);
