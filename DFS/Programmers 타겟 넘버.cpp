@@ -3,12 +3,11 @@
 using namespace std;
 
 int count;
-void dfs(vector<int> &v, int index, int now, int target)
-{
-    if (index == v.size())
-    {
+
+void dfs(vector<int> &v, int index, int now, int target) {
+    if (index == v.size()) {
         if (now == target)
-            count++;
+            ++count;
         return;
     }
     
