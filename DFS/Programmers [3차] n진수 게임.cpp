@@ -14,6 +14,7 @@ void nextNumbers(vector<string> &v, int index, int count, string now) {
     for (int i = 0; i < v.size(); ++i) {
         if (index == 0 && i == 0)
             continue;
+        
         nextNumbers(v, index + 1, count, now + v[i]);
     }
 }
@@ -35,5 +36,6 @@ string solution(int n, int t, int m, int p) {
         answer += save[i];
         i += m - 1;
     }
+    
     return answer;
 }
