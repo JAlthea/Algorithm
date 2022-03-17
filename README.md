@@ -6,7 +6,7 @@ Welcome~🎲🎨 <br>
 <br>&nbsp;&nbsp;[Programmers](https://programmers.co.kr/learn/challenges) <img src="https://programmers.co.kr/assets/icons/favicon-40b78633b6556a68c3da8e2125c31512fbd01d09906ab76c8a8ff289e494cadb.png" width="20" height="20"></img>
 <br>&nbsp;&nbsp;[LeetCode](https://leetcode.com/problemset/all/) <img src="https://leetcode.com/static/images/LeetCode_logo.png" width="20" height="20"></img> <br>
 
-### 백준 템플릿 
+### 백준 템플릿 (C++)
 ```
 #include <bits/stdc++.h>
 using namespace std;
