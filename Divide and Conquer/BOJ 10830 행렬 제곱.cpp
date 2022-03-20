@@ -13,9 +13,10 @@ vector<vector<int>> matrixMultiple(vector<vector<int>> &a, vector<vector<int>> &
 	
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < m; ++j) {
-            for (int k = 0; k < n; ++k)
+            for (int k = 0; k < n; ++k) {
                 c[i][j] += a[i][k] * b[k][j];
-			
+	    }
+	    
             c[i][j] = div(c[i][j]);
         }
     }
@@ -46,13 +47,17 @@ int main() {
     cin >> n >> b;
     vector<vector<int>> v(n, vector<int>(n, 0));
 	
-    for (int i = 0; i < n; ++i)
-        for (int j = 0; j < n; ++j)
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
             cin >> v[i][j];
+	}
+    }
     
     v = expo(v, b);
     
-    for (int i = 0; i < n; cout << "\n", ++i)
-        for (int j = 0; j < n; ++j)
+    for (int i = 0; i < n; cout << "\n", ++i) {
+        for (int j = 0; j < n; ++j) {
             cout << div(v[i][j]) << ' ';
+	}
+    }
 }
