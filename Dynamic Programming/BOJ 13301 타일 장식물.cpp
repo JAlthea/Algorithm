@@ -1,18 +1,21 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
+int main() {
     int n;
     cin >> n;
-    long long a = 1, b = 1, t;
-    for (int i = 3; i <= n; ++i)
-    {
-        t = b;
-        b = a + b;
-        a = t;
+    
+    if (n < 3) {
+        cout << (n + 1) * 2;
+        return 0;
     }
-    if (n == 1) cout << 4;
-    else if (n == 2) cout << 6;
-    else cout << 2 * a + 4 * b;
+    
+    long long a = b = 1;
+    for (int i = 3; i <= n; ++i) {
+        long long temp = b;
+        b = a + b;
+        a = temp;
+    }
+    
+    cout << 2 * a + 4 * b;
 }
