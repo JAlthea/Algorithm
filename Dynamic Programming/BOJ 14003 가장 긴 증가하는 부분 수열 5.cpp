@@ -1,60 +1,61 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int lower_bound_search(vector<int> &s, int start, int end, int value)
-{
+int lower_bound_search(vector<int> &s, int start, int end, int value) {
 	int mid;
-	while (start < end)
-	{
+	
+	while (start < end) {
 		mid = (start + end) / 2;
-		if (s[mid] >= value) end = mid;
-		else start = mid + 1;
+		
+		if (s[mid] >= value) { 
+			end = mid;
+			continue;
+		}
+		
+		start = mid + 1;
 	}
+	
 	return end;
 }
 
-int main()
-{
+int main() {
 	int n;
 	scanf("%d", &n);
-	vector<int> v(n);
-	vector<int> s(n);
+	
+	vector<int> v(n), s(n);
 	vector<pair<int, int>> answer(n);
-	for (int i = 0; i < n; ++i)
+	for (int i = 0; i < n; ++i) {
 		scanf("%d", &v[i]);
+	}
 
 	int preLIS = 0;
 	s[preLIS] = v[0];
-	answer[0].first = 0;
-	answer[0].second = v[0];
-	for (int i = 1; i < n; ++i)
-	{
-		if (v[i] > s[preLIS])
-		{
+	answer[0] = { preLIS, s[preLIS] };
+	
+	for (int i = 1; i < n; ++i) {
+		if (v[i] > s[preLIS]) {
 			s[++preLIS] = v[i];
-			answer[i].first = preLIS;
-			answer[i].second = v[i];
+			answer[i] = { preLIS, v[i] };
+			continue;
 		}
-		else
-		{
-			int pos = lower_bound_search(s, 0, preLIS, v[i]);
-			s[pos] = v[i];
-			answer[i].first = pos;
-			answer[i].second = v[i];
-		}
+
+		int pos = lower_bound_search(s, 0, preLIS, v[i]);
+		s[pos] = v[i];
+		answer[i] = { pos, v[i] };
 	}
 
 	printf("%d\n", preLIS + 1);
 	int size = preLIS;
 	stack<int> st;
-	for (int i = n - 1; i >= 0; --i)
-	{
-		if (answer[i].first == size)
-		{
+	
+	for (int i = n - 1; i >= 0; --i) {
+		if (answer[i].first == size) {
 			st.push(answer[i].second);
-			size--;
+			--size;
 		}
 	}
     
-	while (!st.empty()) printf("%d ", st.top()), st.pop();
+	while (!st.empty()) {
+		printf("%d ", st.top()); st.pop();
+	}
 }
