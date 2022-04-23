@@ -2,19 +2,20 @@
 
 int n, a, b, t;
 
-inline int M(int n) { return n > 15745 ? n % 15746 : n;}
+inline int M(int n) { 
+    return n > 15745 ? n % 15746 : n;
+}
 
-int main()
-{
+int main() {
+    int n, a = 1, b = 2;
     scanf("%d", &n);
-    a = 1;
-    b = 2;
-    for (int i=3; i<=n; ++i)
-    {
+
+    for (int i = 3; i <= n; ++i) {
         t = b;
         b += a;
         a = t;
         b = M(b);
     }
-    printf("%d", n - 1 ? M(b) : 1);
+    
+    printf("%d", n - 1 ? b : 1);
 }
