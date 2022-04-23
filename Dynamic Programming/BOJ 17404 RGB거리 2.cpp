@@ -6,26 +6,24 @@ bool startCheck[3];
 
 long long dp(int i, int color) {
 	int & ret = c[i][color];
-	if (ret)
+	if (ret) {
 		return ret;
+	}
 
 	if (i == n - 1) {
-		if (startCheck[color])
-			return INT_MAX;
-		else 
-			return d[i][color];
+		return startCheck[color] ? INT_MAX : d[i][color];
 	}
-	else {
-		if (i == 0)
-			startCheck[color] = true;
-		ret = min(dp(i + 1, (color + 1) % 3), dp(i + 1, (color + 2) % 3)) + d[i][color];
+	
+	if (i == 0) {
+		startCheck[color] = true;
 	}
-
-	return ret;
+	
+	return ret = min(dp(i + 1, (color + 1) % 3), dp(i + 1, (color + 2) % 3)) + d[i][color];
 }
 
 int main() {
 	ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+	
 	cin >> n;
 	for (int i = 0; i < n; ++i) {
 		cin >> d[i][0] >> d[i][1] >> d[i][2];
