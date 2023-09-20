@@ -5,10 +5,9 @@ Welcome~🎲🎨 <br>
 <br>&nbsp;&nbsp;[BaekJoon Online Judge](https://www.acmicpc.net/) 
 <br>&nbsp;&nbsp;[Programmers](https://programmers.co.kr/learn/challenges)
 <br>&nbsp;&nbsp;[LeetCode](https://leetcode.com/problemset/all/)
-<br>
 
 * BaekJoon Online Judge Profile
-<br> ![image](https://github.com/JAlthea/Algorithm/assets/50026903/0f6adab4-a891-4104-aea8-23d96b705a3f) <br>
+<br> ![image](https://github.com/JAlthea/Algorithm/assets/50026903/0f6adab4-a891-4104-aea8-23d96b705a3f)
 
 
 * BaekJoon Code Base (C++)
